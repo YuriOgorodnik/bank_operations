@@ -10,6 +10,7 @@
 - Библиотеки: attrs, colorama, coverage, iniconfig, packaging, pluggy, pytest, pytest-cov, pip.
 
 Функция считывания данных и вывода последних 5 (пяти) операций:
+
 def open_json_file():
     """
     Получает отсортированные данные из json-файла

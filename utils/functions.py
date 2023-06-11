@@ -1,4 +1,5 @@
 # Импортируем необходимые для работы модули
+import os
 import json
 from datetime import datetime
 
@@ -6,9 +7,14 @@ from datetime import datetime
 def open_json_file():
     """
     Получает отсортированные данные из json-файла
+    об успешных операциях клиента по счетам и выводит
+    на экран список из 5 (пяти) последних выполненных
+    операций
 
     """
-    with open('D:/course_work_3/utils/operations.json', 'r', encoding='UTF-8') as file:
+    directory_path = os.path.abspath('D:/course_work_3/utils')
+    file_path = os.path.join(directory_path, 'operations.json')
+    with open(file_path, 'r', encoding='UTF-8') as file:
         all_operations = json.load(file)
         last_operations = filter(lambda item: item.get("date") and item["state"] == "EXECUTED", all_operations)
         last_operations = sorted(last_operations, key=lambda item: item["date"])[:-6:-1]
@@ -70,5 +76,3 @@ def _hide_operation(operation):
         return operation[:4] + " " + operation[4:6] + "" + "** " + "**** " + operation[12:16]
     else:
         return "**" + operation[len(operation) - 4:]
-
-

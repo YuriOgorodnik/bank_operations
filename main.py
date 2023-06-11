@@ -1,5 +1,5 @@
-# Из файла functions.py импортируем необходимые функции
-from functions import open_json_file, load_operations_dates, load_where_paid, load_transfer_amount
+# Из файла functions.py, расположенного в папке utils, импортируем необходимые функции
+from utils.functions import open_json_file, load_operations_dates, load_where_paid, load_transfer_amount
 
 last_operation = open_json_file()
 
